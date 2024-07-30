@@ -51,5 +51,5 @@ export const URLS = {
   SUCCCESS_URL: `${BASE_DOMAIN_URL}/settings`,
   CANCEL_URL: `${BASE_DOMAIN_URL}/pricing`,
   DISCORD: "https://discord.gg/qJNV93PY2e",
-  GITHUB: "https://discord.gg/qJNV93PY2e",
+  GITHUB: "https://github.com/DubbieHQ/dubbie",
 };

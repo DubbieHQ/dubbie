@@ -18,11 +18,11 @@ export default function SettingsPage() {
           <Section.KVRow title="Phone number" value="14156327282" />
           <Section.KVRow
             title="Discord"
-            value={<a href={URLS.DISCORD}>Invite link</a>}
+            value={<a href={URLS.DISCORD}>Click to join</a>}
           />
           <Section.KVRow
             title="Github"
-            value={<a href={URLS.GITHUB}>Repo link</a>}
+            value={<a href={URLS.GITHUB}>Click to view</a>}
           />
         </Section.ContentArea>
       </Section>
