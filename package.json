@@ -1,0 +1,23 @@
+{
+  "name": "dubbie-mono",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "packageManager": "pnpm@8.15.8",
+  "scripts": {
+    "next:build": "pnpm --filter next build",
+    "next:start": "pnpm --filter next start",
+    "node:start": "pnpm --filter node start",
+    "postinstall": "pnpm g",
+    "d": "pnpm --filter next dev",
+    "dn": "pnpm --filter node dev",
+    "t": "pnpm --filter node test",
+    "g": "pnpm --filter @dubbie/db generate",
+    "dp": "pnpm --filter @dubbie/db db-push",
+    "sd": "pnpm --filter @dubbie/db studio"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.1"
+  }
+}

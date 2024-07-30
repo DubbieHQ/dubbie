@@ -1,0 +1,44 @@
+{
+  "name": "node",
+  "scripts": {
+    "dev": "tsx --watch --env-file=.env src/index.ts",
+    "test": "tsx --watch --env-file=.env src/test.ts",
+    "start": "tsx src/index.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@dubbie/db": "workspace:*",
+    "@dubbie/shared": "workspace:*",
+    "@fal-ai/serverless-client": "^0.9.3",
+    "@prisma/client": "5.12.1",
+    "@sentry/cli": "^2.32.1",
+    "@sentry/node": "^8.7.0",
+    "@sentry/profiling-node": "^8.7.0",
+    "@types/uuid": "^9.0.8",
+    "async": "^3.2.5",
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.0.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
+    "music-metadata": "^7.14.0",
+    "openai": "^4.29.1",
+    "prisma": "5.12.1",
+    "replicate": "^0.28.1",
+    "string-similarity": "^4.0.4",
+    "tsx": "^4.7.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.24",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/fast-levenshtein": "^0.0.4",
+    "@types/node": "^20.14.0",
+    "@types/string-similarity": "^4.0.2",
+    "esbuild": "^0.18.0"
+  }
+}

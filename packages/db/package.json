@@ -1,0 +1,19 @@
+{
+  "name": "@dubbie/db",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "generate": "pnpm exec prisma generate",
+    "db-push": "pnpm exec prisma db push",
+    "studio": "pnpm exec prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "5.12.1"
+  },
+  "devDependencies": {
+    "prisma": "5.12.1"
+  }
+}
