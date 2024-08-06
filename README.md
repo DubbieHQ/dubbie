@@ -1,8 +1,14 @@
 <img width="1200" alt="github photo (1)" src="https://github.com/user-attachments/assets/1cecd653-239e-407d-a8f3-a4a390543936">
 
+<br>
+<br>
+<br>
+
 **Dubbie is an open-source AI dubbing studio that costs $0.1/min**, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
 This README focuses on the technical aspects of Dubbie. For more on motivations and mission, see our [manifesto](http://dubbie.com/blog/why). For questions/thoughts/bugs, email [chen@dubbie.com](mailto:chen@dubbie.com) or join our [Discord server](https://discord.gg/qJNV93PY2e).
+
+<br>
 
 ## Tech Stack
 
@@ -18,21 +24,28 @@ This README focuses on the technical aspects of Dubbie. For more on motivations 
 
 Note: These choices reflect personal preference/experience rather than being definitively "best".
 
-## Dubbing Process
+<br>
 
-1. User uploads video and creates project
-2. Video uploaded to Firebase storage
-3. Audio extracted and uploaded to Firebase storage
-4. Audio transcribed using Whisper
-5. LLM breaks transcription into individual sentences
-6. Sentences matched with word-level timestamps
-7. LLM translates sentences to selected language
-8. Text-to-speech API (Azure/OpenAI) creates audio
-9. Audio uploaded to Firebase, URL saved to database
+## How the initialization process works
 
-## Editor Functionality
+1. The user uploads the video and click “create project”
+2. Upload the video to firebase storage
+3. Extract the audio and upload it to firebase storage as well
+4. Transcribe the audio via Whisper
+    - Which will give us the entire transcription in a big paragraph, as well as time stamps for each word.
+5. Use an LLM to break down the entire paragraph into individual sentences.
+6. Match the individual sentences with the word level timestamps to figure out when each sentence begins and ends.
+    - Since the LLM output may not be “perfect” match, we will then use an approximation algorithm.
+7. Use an LLM to translate each sentence it into the language the user selected.
+    - We do this translation chunk by chunk, and use certain techniques to ensure the output matches the input.
+8. Use a text to speech API(currently just Azure and OpenAI) to generate audio!
+9. Upload those audio files to firebase storage, and save the URLs to our database via Prisma.
+10. The frontend client updates and renders all of that so users can preview realtime and edit
+  
+<br>
 
-Three elements to sync:
+## How the frontend editor works
+On a high level: there are 3 elements that we need to sync
 1. Video element
 2. Timeline scrubber
 3. Invisible audio player
