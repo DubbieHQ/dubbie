@@ -70,7 +70,9 @@ On a high level: there are 3 elements that we need to sync
 
 Tone.js connects individual audio URLs and serves as the main timer. See `useAudioTrack.ts` for implementation details.
 
-## Roadmap
+## Known limits
 
-- Fix known bugs
-  - Regenerating segment and moving segments sometimes crashes the Next.js app
+- client bugs
+  - Regenerating segment and moving segments sometimes crashes the Next.js app. Unclear why. But there's some sorts of race condition happening.
+- backend scale
+  - currently there's only one instance of the backend. There are no limits/queues either. So it's almost guarantee'd that if many people uses it at once, it'll crash. I don't have too much experience with this, so if you wanna help that'd be very much appreciated :)
