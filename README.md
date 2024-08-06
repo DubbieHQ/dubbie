@@ -2,7 +2,7 @@
 
 Dubbie is an open-source AI dubbing studio that costs $0.1/min, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
-This README focuses on the technical aspects of Dubbie. For more on motivations and mission, see our [manifesto](http://dubbie.com/blog/why). For questions/thoughts/bugs, email [chen@dubbie.com](mailto:chen@dubbie.com) or join our [Discord server]([url](https://discord.gg/qJNV93PY2e)).
+This README focuses on the technical aspects of Dubbie. For more on motivations and mission, see our [manifesto](http://dubbie.com/blog/why). For questions/thoughts/bugs, email [chen@dubbie.com](mailto:chen@dubbie.com) or join our [Discord server](https://discord.gg/qJNV93PY2e).
 
 ## Tech Stack
 
