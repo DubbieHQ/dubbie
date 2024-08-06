@@ -2,7 +2,6 @@
 
 <br>
 <br>
-<br>
 
 **[Dubbie](https://dubbie.com) is an open-source AI dubbing studio that costs $0.1/min**, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
