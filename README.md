@@ -27,6 +27,23 @@ Note: These choices reflect personal preference/experience rather than being def
 
 <br>
 
+## Project Structure
+This project is a monorepo with 4 packages
+1. /next
+2. /node
+3. /shared
+4. /db
+
+
+`next` and `node` are applications that are deployed to vercel/railway.
+
+`db` contains our prisma schema + client. 
+
+`shared` contains individual functions that are used for inside of both `next` and `node`.
+
+You be wondering, next is frontend and node is backend, how can they use the same functions? To be honest, the code is not perfectly organized, and not all code in `shared` can be used in both web and node runtime. However, since NextJS is actually just a node server that's serving web pages, most of the code in shared can be used in the "Server Actions" side of NextJS. This may be a little confusing if you've not familiar with Next14, RSC and Server Actions. But it really does make things a lot easier!
+
+
 ## How the initialization process works
 
 1. The user uploads the video and click “create project”
