@@ -1,4 +1,4 @@
-![github photo](https://github.com/user-attachments/assets/428bfeb1-e12f-4a53-a533-0250eeb5a81c)
+<img width="1200" alt="github photo (1)" src="https://github.com/user-attachments/assets/1cecd653-239e-407d-a8f3-a4a390543936">
 
 **Dubbie is an open-source AI dubbing studio that costs $0.1/min**, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
