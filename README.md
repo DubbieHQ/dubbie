@@ -43,6 +43,7 @@ This project is a monorepo with 4 packages
 
 You be wondering, next is frontend and node is backend, how can they use the same functions? To be honest, the code is not perfectly organized, and not all code in `shared` can be used in both web and node runtime. However, since NextJS is actually just a node server that's serving web pages, most of the code in shared can be used in the "Server Actions" side of NextJS. This may be a little confusing if you've not familiar with Next14, RSC and Server Actions. But it really does make things a lot easier!
 
+<br>
 
 ## How the initialization process works
 
@@ -69,6 +70,8 @@ On a high level: there are 3 elements that we need to sync
 3. Invisible audio player
 
 Tone.js connects individual audio URLs and serves as the main timer. See `useAudioTrack.ts` for implementation details.
+
+<br>
 
 ## Known limits
 
