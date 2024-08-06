@@ -1,12 +1,45 @@
-dub dub dubbbbb!!!
+# Dubbie: Open-Source AI Dubbing Studio
 
-still working on this README
-dubbie.com for more info
+Dubbie is an open-source AI dubbing studio that costs $0.1/min, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
-join discord [here](https://discord.gg/qJNV93PY2e)
+This README focuses on the technical aspects of Dubbie. For more on motivations and mission, see our [manifesto](http://dubbie.com/blog/why). For questions/thoughts/bugs, email [chen@dubbie.com](mailto:chen@dubbie.com) or join our [Discord server]([url](https://discord.gg/qJNV93PY2e)).
 
-the project is usable with a few known bugs and concerns
-1. sometimes there's a race condition that occurs when regenerating audio and moving segment that causes next app to crash
-2. sometimes regenerated audio does not immediately sound good in preview
-3. sometimes demucs(background audio extraction) crashes
-4. backend is not scalable, and does not have a queue rn, so if too many people initializes then it'll likely go OOM.
+## Tech Stack
+
+- **NextJS 14**: Client app (app.dubbie.com)
+- **Node**: Longer running functions (initialization/exporting)
+- **Openrouter**: LLM selection for best-fit tasks
+- **Azure/OpenAI**: Voice generation
+- **Prisma**: Database interface (Postgres)
+- **Firebase**: Storage
+- **Clerk**: User authentication
+- **Stripe**: Payments
+- **ShadcnUI**: Some UI components
+
+Note: These choices reflect personal preference/experience rather than being definitively "best".
+
+## Dubbing Process
+
+1. User uploads video and creates project
+2. Video uploaded to Firebase storage
+3. Audio extracted and uploaded to Firebase storage
+4. Audio transcribed using Whisper
+5. LLM breaks transcription into individual sentences
+6. Sentences matched with word-level timestamps
+7. LLM translates sentences to selected language
+8. Text-to-speech API (Azure/OpenAI) creates audio
+9. Audio uploaded to Firebase, URL saved to database
+
+## Editor Functionality
+
+Three elements to sync:
+1. Video element
+2. Timeline scrubber
+3. Invisible audio player
+
+Tone.js connects individual audio URLs and serves as the main timer. See `useAudioTrack.ts` for implementation details.
+
+## Roadmap
+
+- Fix known bugs
+  - Regenerating segment and moving segments sometimes crashes the Next.js app
