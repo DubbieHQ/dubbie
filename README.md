@@ -3,6 +3,8 @@
 <br>
 <br>
 
+## What is 🍙 Dubbie?
+
 **[Dubbie](https://dubbie.com) is an open-source AI dubbing studio that costs $0.1/min**, which is about 10-30x less than alternatives like ElevenLabs, RaskAI, or Speechify. While still in early development and not at feature parity with these alternatives, Dubbie offers enough features to create dubs for basic videos.
 
 Here we focus on the technical aspects of Dubbie. For more on motivations and mission, see [why we made Dubbie](http://dubbie.com/blog/why).
@@ -11,7 +13,7 @@ For questions/bugs/contributions, join our [Discord server](https://discord.gg/q
 
 <br>
 
-## Tech Stack
+## What technology does Dubbie use?
 
 - **NextJS 14**: Client app (app.dubbie.com)
 - **Node**: Longer running functions (initialization/exporting)
@@ -23,11 +25,11 @@ For questions/bugs/contributions, join our [Discord server](https://discord.gg/q
 - **Stripe**: Payments
 - **ShadcnUI**: Some UI components
 
-Note: These choices reflect personal preference/experience rather than being definitively "best".
+Note: These choices are more due to personal preference/experience rather than the "best".
 
 <br>
 
-## Project Structure
+## How are the folders structure?
 This project is a monorepo with 4 packages
 1. /next
 2. /node
@@ -45,7 +47,7 @@ You be wondering, next is frontend and node is backend, how can they use the sam
 
 <br>
 
-## How the initialization process works
+## How does the dubbing actually work?
 
 1. The user uploads the video and click “create project”
 2. Upload the video to firebase storage
@@ -63,7 +65,7 @@ You be wondering, next is frontend and node is backend, how can they use the sam
   
 <br>
 
-## How the frontend editor works
+## How does the frontend editor work?
 On a high level: there are 3 elements that we need to sync
 1. Video element
 2. Timeline scrubber
