@@ -13,7 +13,7 @@ For questions/bugs/contributions, join our [Discord server](https://discord.gg/q
 
 <br>
 
-## What technologies does Dubbie use?
+## What is Dubbie built with?
 
 - **NextJS 14**: Client app (app.dubbie.com)
 - **Node**: Longer running functions (initialization/exporting)
