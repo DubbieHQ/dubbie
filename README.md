@@ -13,7 +13,7 @@ For questions/bugs/contributions, join our [Discord server](https://discord.gg/q
 
 <br>
 
-## What technology does Dubbie use?
+## What technologies does Dubbie use?
 
 - **NextJS 14**: Client app (app.dubbie.com)
 - **Node**: Longer running functions (initialization/exporting)
@@ -29,7 +29,7 @@ Note: These choices are more due to personal preference/experience rather than t
 
 <br>
 
-## How are the folders structure?
+## How are the folders structured?
 This project is a monorepo with 4 packages
 1. /next
 2. /node
