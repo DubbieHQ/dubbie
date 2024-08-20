@@ -1,0 +1,106 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AcceptedLanguage {
+  original
+  english
+  mandarin
+  spanish
+  hindi
+  korean
+  arabic
+  portuguese
+  bengali
+  russian
+  japanese
+  french
+  german
+  italian
+  turkish
+  vietnamese
+  polish
+  ukrainian
+  dutch
+  thai
+  urdu
+  indonesian
+  punjabi
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ProjectStatus {
+  NOT_STARTED
+  TRANSCRIBING
+  FORMATTING
+  TRANSLATING
+  AUDIO_PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ExportStatus {
+  NOT_STARTED
+  EXPORTING
+  EXPORTED
+  ERROR
+}
+
+enum MediaType {
+  AUDIO
+  VIDEO
+}
+
+model Project {
+  userId                      String
+  status                      ProjectStatus     @default(NOT_STARTED)
+  name                        String
+  originalMediaType           MediaType
+  originalUrl                 String
+  thumbnailUrl                String
+  exportedUrl                 String?
+  originalLanguage            AcceptedLanguage?
+  targetLanguage              AcceptedLanguage //not the ietf, but just the language name (e.g. english)
+  tracks                      Track[]
+  exportType                  MediaType?
+  exportStatus                ExportStatus      @default(NOT_STARTED)
+  id                          String            @id @default(uuid())
+  createdAt                   DateTime          @default(now())
+  updatedAt                   DateTime          @updatedAt
+  isDeleted                   Boolean           @default(false)
+  audioDurationInSeconds      Int?
+  comments                    String?
+  defaultVoiceName            String
+  defaultVoiceProvider        String
+  extractBackgroundAudio      Boolean           @default(false)
+  extractedBackgroundAudioUrl String?
+}
+
+model Track {
+  projectId String
+  language  AcceptedLanguage
+  segments  Segment[]
+  id        String           @id @default(uuid())
+  Project   Project          @relation(fields: [projectId], references: [id])
+
+  @@unique([projectId, language])
+}
+
+model Segment {
+  id            String   @id @default(uuid())
+  index         Int
+  startTime     Float
+  endTime       Float
+  text          String
+  audioUrl      String? //the original language doesn't need this
+  voiceName     String
+  voiceProvider String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  track         Track    @relation(fields: [trackId], references: [id])
+  trackId       String
+}
