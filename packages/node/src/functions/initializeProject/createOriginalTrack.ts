@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import { join } from "node:path";
 import { unlink } from "node:fs/promises";
 import { extractAudioFromVideo } from "@/utils/extractAudioFromVideo";
-import { prisma, type Project, type Track } from "@dubbie/db";
+import { AcceptedLanguage, prisma, type Project, type Track } from "@dubbie/db";
 import { extractBGM } from "@dubbie/shared/services/extractBGM";
 import { uploadFileToStorage } from "@dubbie/shared/services/firebaseUploads";
 import { transcribeAudio } from "@dubbie/shared/services/transcribeAudio";
@@ -47,7 +47,7 @@ export async function createOriginalTrack(projectId: string) {
 
   await prisma.project.update({
     where: { id: projectId },
-    data: { originalLanguage: detectedLanguage },
+    data: { originalLanguage: detectedLanguage?.toLowerCase() as AcceptedLanguage },
   });
 
   updateProjectStatus(projectId, "FORMATTING");
