@@ -47,7 +47,7 @@ export async function createOriginalTrack(projectId: string) {
 
   await prisma.project.update({
     where: { id: projectId },
-    data: { originalLanguage: detectedLanguage?.toLowerCase() as AcceptedLanguage },
+    data: { originalLanguage: detectedLanguage as AcceptedLanguage },
   });
 
   updateProjectStatus(projectId, "FORMATTING");
